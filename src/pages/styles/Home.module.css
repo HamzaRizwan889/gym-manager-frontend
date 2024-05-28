@@ -1,0 +1,124 @@
+/* Home.module.css */
+
+.backgroundContainer {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text contrast */
+}
+
+.backgroundImage {
+  background-image: url('/images/vecteezy_abstract-blue-fluid-wave-background_17798503.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Overlay for darker effect */
+  z-index: -1;
+}
+
+.content {
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+.mainContent {
+  margin-bottom: 40px;
+}
+
+.text {
+  font-weight: bold;
+  color: white;
+  font-size: 5rem;
+  margin: 0;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.subText {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.buttonContainer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.button {
+  background-color: #6c63ff; /* Light purple */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+  background-color: #574b90; /* Darker shade of purple */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.callToAction {
+  margin-top: 40px;
+  text-align: center;
+  animation: fadeIn 3s ease-in-out;
+}
+
+.callToAction h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.feature {
+  max-width: 300px;
+  text-align: center;
+}
+
+.feature img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.feature h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.feature p {
+  font-size: 1rem;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
