@@ -1,13 +1,19 @@
-// src/pages/Home.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBar from '../components/navbar';
 import Loader from '../components/loader'; // Import the Loader component
 import styles from './styles/Home.module.css';
+import { getAuthToken } from '../../services/authService'; // Import the auth service to get the auth token
 
 const Home = () => {
   const [loading, setLoading] = useState(false); // State to manage loading status
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to manage login status
 
-  // Simulating loading by setting loading to true for 2 seconds
+  useEffect(() => {
+    // Check if the user is logged in
+    const token = getAuthToken();
+    setIsLoggedIn(!!token); // Set isLoggedIn to true if there is a token
+  }, []);
+
   const handleFetchData = () => {
     setLoading(true);
     setTimeout(() => {
@@ -24,16 +30,14 @@ const Home = () => {
           <h1 className={styles.text}>Welcome to Gym Manager</h1>
           <p className={styles.subText}>Your ultimate solution for gym management</p>
           <div className={styles.buttonContainer}>
-            <a href="/authentication/signup" className={styles.button}>Get Started</a>
+            {isLoggedIn && (
+              <a href="/admin/admin" className={styles.button}>Admin Control Center</a>
+            )}
             <a href="/authentication/login" className={styles.button}>Login</a>
           </div>
         </div>
-        {loading && <Loader />} {/* Conditionally render the loader */}
+        {loading && <Loader />}
         <div className={styles.callToAction}>
-          <h2>Why Choose Us?</h2>
-          <div className={styles.features}>
-            {/* Feature icons go here */}
-          </div>
         </div>
       </div>
     </div>

@@ -1,4 +1,3 @@
-// authService.js
 const tokenKey = "token";
 const userIdKey = "userId"; 
 
@@ -17,5 +16,5 @@ export function getAuthToken() {
 }
 
 export function getUserId() {
-  return localStorage.getItem(userIdKey); // Retrieve user ID from local storage
+  return localStorage.getItem(userIdKey); 
 }
