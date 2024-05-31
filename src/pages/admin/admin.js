@@ -6,6 +6,7 @@ const { useQuery, useMutation } = require('@apollo/client');
 import { CREATE_USER, UPDATE_USER, DELETE_USER } from '../../graphql/mutations/mutation';
 import { USERS_QUERY, ROLES_QUERY } from '../../graphql/queries/query';
 import { useFieldArray } from 'react-hook-form';
+import NavBar from '../../components/navbar.js';
 const { Table, Button, Modal, Form, Input, message , Select} = require('antd');
 const Admin = () => {
     const router = useRouter();
@@ -68,7 +69,6 @@ const Admin = () => {
         lastName: user.lastName,
         userName: user.userName,
         email: user.email,
-        password: user.password,
         dateOfBirth: user.dateOfBirth,
         roleId: user.roles.length > 0 ? user.roles[0]._id : null 
       });
@@ -151,6 +151,7 @@ const Admin = () => {
     if (error) return <p>Error: {error.message}</p>;
     return (
       <div>
+        <NavBar/>
           <h1 className="h1">Welcome to Admin Control Panel</h1>
           <Link href="/">
               <Button type="primary">Back to Home</Button>

@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import styles from '../styles/Login.module.css';
 import { login as storeToken } from '../../../services/authService.js'; 
+import NavBar from '../../components/navbar.js';
 
 const SignIn = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -35,6 +36,8 @@ const SignIn = () => {
   };
 
   return (
+    <>
+    <NavBar/>
     <div className={styles.container}>
       <h1 className={styles.heading}>Sign In</h1>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
@@ -66,6 +69,7 @@ const SignIn = () => {
       <p className={styles.linkText}>Don't have an account? <Link href="/authentication/signup"><span className={styles.link}>Sign Up</span></Link></p>
       <p className={styles.linkText}><Link href="/"><span className={styles.link}>Back to Home</span></Link></p>
     </div>
+    </>
   );
 };
 

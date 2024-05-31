@@ -1,24 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import NavBar from '../components/navbar';
+import NavBar from '../components/navbar.js';
 import Loader from '../components/loader'; // Import the Loader component
 import styles from './styles/Home.module.css';
 import { getAuthToken } from '../../services/authService'; // Import the auth service to get the auth token
+import { logout } from '../../services/authService';
+import { useRouter } from 'next/router';
 
 const Home = () => {
+  const router = useRouter();
+
   const [loading, setLoading] = useState(false); // State to manage loading status
   const [isLoggedIn, setIsLoggedIn] = useState(false); // State to manage login status
 
   useEffect(() => {
-    // Check if the user is logged in
     const token = getAuthToken();
-    setIsLoggedIn(!!token); // Set isLoggedIn to true if there is a token
+    setIsLoggedIn(!!token);
   }, []);
 
-  const handleFetchData = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
+  const handleLogout = () => {
+    logout();
+    router.push('/admin/admin'); 
   };
 
   return (
@@ -31,9 +32,14 @@ const Home = () => {
           <p className={styles.subText}>Your ultimate solution for gym management</p>
           <div className={styles.buttonContainer}>
             {isLoggedIn && (
+              <>
               <a href="/admin/admin" className={styles.button}>Admin Control Center</a>
+              <button onClick={handleLogout} className={styles.button}>Logout</button>
+              </>
             )}
-            <a href="/authentication/login" className={styles.button}>Login</a>
+             {!isLoggedIn && (
+              <a href="/authentication/login" className={styles.button}>Login</a>
+            )}
           </div>
         </div>
         {loading && <Loader />}
