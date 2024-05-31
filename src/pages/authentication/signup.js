@@ -1,6 +1,6 @@
 // src/pages/sign-up.js
 import Link from 'next/link';
-import styles from '../styles/SignUp.module.css';
+import styles from '../../../styles/SignUp.module.css';
 
 const SignUp = () => {
   return (

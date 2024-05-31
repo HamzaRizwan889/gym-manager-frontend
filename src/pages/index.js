@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from '../components/navbar.js';
-import Loader from '../components/loader'; // Import the Loader component
-import styles from './styles/Home.module.css';
-import { getAuthToken } from '../../services/authService'; // Import the auth service to get the auth token
+import Loader from '../components/loader';
+import styles from '../../styles/Home.module.css';
+import { getAuthToken } from '../../services/authService'; 
 import { logout } from '../../services/authService';
 import { useRouter } from 'next/router';
 
 const Home = () => {
   const router = useRouter();
 
-  const [loading, setLoading] = useState(false); // State to manage loading status
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to manage login status
+  const [loading, setLoading] = useState(false); 
+  const [isLoggedIn, setIsLoggedIn] = useState(false); 
 
   useEffect(() => {
     const token = getAuthToken();
@@ -24,7 +24,7 @@ const Home = () => {
 
   return (
     <div className={styles.backgroundContainer}>
-      <div className={styles.backgroundImage} />
+      <div />
       <div className={styles.overlay} />
       <div className={styles.content}>
         <div className={styles.mainContent}>
@@ -33,7 +33,7 @@ const Home = () => {
           <div className={styles.buttonContainer}>
             {isLoggedIn && (
               <>
-              <a href="/admin/admin" className={styles.button}>Admin Control Center</a>
+              <a href="/admin/admin" className={styles.button}>Admin Control Panel</a>
               <button onClick={handleLogout} className={styles.button}>Logout</button>
               </>
             )}

@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'BasierRegular';
-  src: url('../../fonts/basiercircle-regular-webfont.woff2') format('woff2'), /* Modern Browsers */
-       url('../../fonts/basiercircle-regular-webfont.woff') format('woff');   /* Legacy Browsers */
+  src: url('../src/fonts/basiercircle-regular-webfont.woff2') format('woff2'), /* Modern Browsers */
+       url('../src/fonts/basiercircle-regular-webfont.woff') format('woff');   /* Legacy Browsers */
   font-weight: normal;
   font-style: normal;
 }

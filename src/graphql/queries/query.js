@@ -3,19 +3,22 @@ import { gql } from "@apollo/client";
 export const USERS_QUERY = gql`
     query Users {
         Users {
+        _id
+        createdAt
+        dateOfBirth
+        email
+        lastName
+        firstName
+        membership {
             _id
-            createdAt
-            dateOfBirth
-            email
-            firstName
-            lastName
-            password
-            roles {
-              _id
-            }
-            userName
-            updatedAt
-          }
+        }
+        password
+        roles {
+            _id
+        }
+        updatedAt
+        userName
+        }
     }
 `;
 
@@ -25,10 +28,16 @@ export const USER_QUERY = gql`
         _id
         createdAt
         dateOfBirth
-        firstName
         email
+        firstName
         lastName
+        membership {
+            _id
+        }
         password
+        roles {
+            _id
+        }
         updatedAt
         userName
         }
@@ -45,3 +54,15 @@ export const ROLES_QUERY = gql`
         }
     }
 `;
+
+export const MEMBERSHIPS_QUERY = gql`
+    query Memberships {
+        Memberships {
+        _id
+        createdAt
+        name
+        price
+        updatedAt
+        }
+    }
+`
